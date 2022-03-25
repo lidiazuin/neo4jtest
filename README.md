@@ -1,3 +1,3 @@
 # neo4jtest: Overwatch Heroes
 Technical writer role @ Neo4J challenge - Lidia Zuin
-image::Overwatch Heroes.png[]
+image::heroes.png[Heroes]
