@@ -13,7 +13,7 @@ Personal project to help with the categorisation of Overwatch characters accordi
 
 == Creation of entries
 
-*Nodes* +
+*Node labels* +
 c.Character: name of the character +
 r.Role: role of the character
 
