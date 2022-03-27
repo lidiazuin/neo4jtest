@@ -42,7 +42,7 @@ Zenyatta
 
 image::https://i.imgur.com/Q6dUl1H.png[Overwatch]
 
-When an entry for a character is created, it is necessary to associate it with their role and properties. In some cases, some characters are also members of a same family (i.e. Pharah is family with Ana). All characters have the properties "species" and "origin" which can be also used for different kinds of clustering -- for example, both Hanzo and Genji come from Japan. 
+When an entry for a character is created, it is necessary to associate it with their role and properties. In some cases, characters can also be members of a same family (i.e. Pharah is family with Ana, who is her mother). All characters have the properties "species" and "origin" which can be also used for different kinds of clustering -- for example, both Hanzo and Genji come from Japan. 
 
 This is an example of a Cypher query associating the character Hanzo, who plays as DPS as his role:
 
