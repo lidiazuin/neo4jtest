@@ -1,3 +1,47 @@
-# neo4jtest: Overwatch Heroes
+# neo4jtest: Overwatch Heroes and Roles
 Technical writer role @ Neo4J challenge - Lidia Zuin
-image::heroes.jpeg[Heroes]
+
+image::https://i.imgur.com/Q6dUl1H.png[Overwatch]
+
+== Description
+
+Personal project to help with the categorisation of Overwatch characters according to their roles. The idea of this project is to classsify characters according to their roles, family relationships, country of origin, and species. For this project, the following resources were used:
+
+*- Neo4j* for organising the data and presenting it graphically
+
+*- Arrows.app* for presenting the graphic representation
+
+== Creation of entries
+
+*Nodes* +
+c.Character: name of the character +
+r.Role: role of the character
+
+*Entities* +
+Ana +
+Brigitte +
+Hanzo +
+Genji +
+Pharah +
+Reinhardt +
+Torbjörn +
+Zarya +
+Zenyatta +
+
+*Relationships* +
+r.FAMILY_WITH: members of a same family +
+p.PLAYS_AS: role played by character
+
+*Properties* +
+s.Species: human, animal, or omnic +
+o.Origin: country  of origin
+
+== Associating entries
+
+This is an example of a Cypher query associating the character Sombra, who plays as DPS for her role:
+
+[source]
+--
+EX: CREATE (c:Character{name:"Sombra"})-[p:PLAYS_AS]->(r:Role{type:"DPS"}) return c,p,r
+--
+
