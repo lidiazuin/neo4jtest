@@ -13,11 +13,8 @@ Personal project to help with the categorisation of Overwatch characters accordi
 
 == Creation of entries
 
-*Node labels* +
-c.Character: name of the character +
-r.Role: role of the character
+*Nodes* are used to describe *entities* of a domain. Entities can be objects, people, or characters like in this case where the domain is the video game "Overwatch", which are: 
 
-*Entities* +
 Ana +
 Brigitte +
 Hanzo +
@@ -26,22 +23,37 @@ Pharah +
 Reinhardt +
 Torbjörn +
 Zarya +
-Zenyatta +
+Zenyatta 
 
-*Relationships* +
-r.FAMILY_WITH: members of a same family +
-p.PLAYS_AS: role played by character
+*Nodes* can have zero or more *labels*. They help with the classification of data. In this project, we are using two labels:
 
-*Properties* +
-s.Species: human, animal, or omnic +
-o.Origin: country  of origin
+*Character:* name of the character +
+*Role:* role of the character
+
+*Relationships* express what is the connection between the nodes:
+
+*FAMILY_WITH:* used between characters to express they are members of a same family +
+*PLAYS_AS:* used between the character and their role, expressing how their gameplay is
+
+*Properties* can be used to describe nodes. In this project, all properties are associated with characters:
+
+*Species:* Overwatch has characters that are human, animal, or omnic (robot)
+*Origin:* every character comes from a specific country, except when they are omnics
 
 == Associating entries
 
-This is an example of a Cypher query associating the character Sombra, who plays as DPS for her role:
+When an entry for a character is created, it is necessary to associate it with their role and properties. In some cases, some characters are also members of a same family (i.e. Pharah is family with Ana). All characters have the properties "species" and "origin" which can be also used for different kinds of clustering -- for example, both Hanzo and Genji come from Japan. 
+
+This is an example of a Cypher query associating the character Hanzo, who plays as DPS as his role:
 
 [source]
 --
-EX: CREATE (c:Character{name:"Sombra"})-[p:PLAYS_AS]->(r:Role{type:"DPS"}) return c,p,r
+CREATE (c:Character{name:"Hanzo"})-[p:PLAYS_AS]->(r:Role{type:"DPS"}) RETURN c,p,r
 --
 
+To connect Hanzo with Genji as "family_with" since they are brother, it is important to differentiate the second "Character" with another variable (otherwise the system will read the query as a same character being family with themselves).
+
+[source]
+--
+MATCH (c:Character{name:"Hanzo"})-[f:FAMILY_WITH]->(cc:Character{name:"Genji"}) RETURN c,f,cc
+--
