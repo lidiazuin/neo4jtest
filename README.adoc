@@ -57,3 +57,13 @@ To connect Hanzo with Genji as "family_with" since they are brother, it is impor
 --
 MATCH (c:Character{name:"Hanzo"})-[f:FAMILY_WITH]->(cc:Character{name:"Genji"}) RETURN c,f,cc
 --
+
+== Final remarks
+
+This project doesn't include all of the Overwatch characters, it is an example of how to present them after a few categories with the use of Neo4j graph. Apart from adding the full list of characters, here are some expansions that could be done:
+
+- *Counter*: what character is strong against the other (e.g. Winston is a counter to Genji). This could be useful for players when choosing their picks and adapting the strategy during gameplay. This could be featured with the use of a new relationship entry (COUNTERS).
+- *Map advantage*: some characters have abilities that are more advantageous or even overpowered in specific maps. One example is Roadhog (not listed here) in the map Illios Well. This could be featured as a new property entry (Map_Advantage). 
+- *Ultimate Cancelling*: some ultimates can cancel others. This could be useful for neutralising the enemy's attack. Through a new relationship (CANCELS), it is possible to include this type of information (e.g. Zenyatta's ultimate cancels Genji's). 
+
+Ultimately, this kind of information could be featured on a specific URL or an app where people can check in real time which character is the best for them to pick depending on the variants. 
